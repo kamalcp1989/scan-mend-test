@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" strict="true"
+	monitorInterval="10">
+	<Appenders>
+		<Appender name="JsonLogFile" type="RollingFile"
+			fileName="./logs/uae-gateway-request-adapter.json.log"
+			filePattern="./logs/uae-gateway-request-adapter.json.log.%d{yyyy-MM-dd}-%i.gz">
+			<JsonTemplateLayout charset="UTF-8"
+				eventTemplateUri="classpath:logging/templates/template.json" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10"
+				fileIndex="min" />
+		</Appender>
+		<Appender type="RollingFile" name="MainLogFile"
+			filename="./logs/uae-gateway-request-adapter.log"
+			filePattern="./logs/uae-gateway-request-adapter.log.%d{yyyy-MM-dd}-%i.gz">
+			<Layout type="PatternLayout">
+				<Pattern>%-5p %-23d{ISO8601} %X{messageKey} [%t] %x: %c:%L - %m%n</Pattern>
+			</Layout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10"
+				fileIndex="min" />
+		</Appender>
+		<Console name="Console" target="SYSTEM_OUT">
+			<Layout type="PatternLayout">
+				<Pattern>%-5p %-23d{ISO8601} %X{messageKey} [%t]: %c:%L - %m%n</Pattern>
+			</Layout>
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<!-- Main log file logging. -->
+		<Logger name="aero.sita" level="INFO" additivity="false">
+			<AppenderRef ref="MainLogFile" />
+			<AppenderRef ref="JsonLogFile" />
+		</Logger>
+		<Logger name="aero.sita.bordermanagement.uae.gw" level="INFO"
+			additivity="false">
+			<AppenderRef ref="MainLogFile" />
+			<AppenderRef ref="JsonLogFile" />
+		</Logger>
+		<Logger name="org.apache.camel" level="INFO" additivity="false">
+			<AppenderRef ref="MainLogFile" />
+			<AppenderRef ref="JsonLogFile" />
+		</Logger>
+		<Root level="INFO">
+			<AppenderRef ref="MainLogFile" />
+			<AppenderRef ref="JsonLogFile" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+            jaxb:version="3.0"
+            targetNamespace="api.model"
+            xmlns:mo="api.model"
+            xmlns:wco="paxlist.model"
+            xmlns:se="service.model"
+            xmlns:wr="ediwrapper.model"
+            xmlns:da="dataTypes"
+            >
+    
+    
+    <xs:import namespace="ediwrapper.model" schemaLocation="ediwrapper.xsd"/>
+    <xs:import namespace="paxlist.model" schemaLocation="paxlist.xsd"/>
+    
+    <xs:element name="APIMessage" type="mo:APIMessage" />
+    
+    <xs:complexType name="APIMessage">
+        <xs:sequence>
+            <xs:element name="header" type="wr:EDIHeader" />
+            <xs:element name="message" type="wco:PaxListMessage" />
+            <xs:element name="trailer" type="wr:EDITrailer" />
+            <xs:element name="errorCodes" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

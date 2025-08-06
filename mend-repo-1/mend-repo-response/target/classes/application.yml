@@ -1,0 +1,23 @@
+spring:
+  config:
+    import: >
+      classpath:application-port.yml,
+      classpath:application-db.yml,
+      classpath:application-mq-int.yml,
+      classpath:application-mq-ext.yml
+      
+uae:
+  gateway:
+    autoresponder:
+      enabled: false
+      return-code: 8501
+      return-description : BOARD IF DOCS OK
+    request-identifier: 2800
+    request:
+      max:
+        redelivery:
+          attempt: 0
+      delay:
+        pattern: 0:10000
+    audit:
+      isTraceEnabled: true  

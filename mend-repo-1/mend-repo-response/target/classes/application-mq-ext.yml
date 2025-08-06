@@ -1,0 +1,9 @@
+uae:
+  gateway:
+    external:
+      mq:
+        queueManager: APP
+        channel: SYSTEM.ADMIN.SVRCONN
+        connName: fush2wmq2.borders.devnet.sita.aero(1414)
+        user: admin
+        password: passw0rd

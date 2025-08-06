@@ -1,0 +1,14 @@
+uae:
+  gateway:
+    internal:
+      mq:
+        queueManager: APP
+        channel: SYSTEM.ADMIN.SVRCONN
+        connName: fush2wmq2.borders.devnet.sita.aero(1414)
+        user: admin
+        password: passw0rd
+      timeout: 30
+      request:
+        queue: AEFT4_GW.APP.REQ
+      response:
+        queue: AEFT4_GW.APP.RES

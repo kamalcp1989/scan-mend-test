@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="paxlist.model"
+            xmlns:gr="paxlist.model"
+            xmlns:se="service.model"
+            xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+            jaxb:version="3.0">
+    
+    <xs:import namespace="service.model" schemaLocation="service.xsd"/>
+    
+    <xs:element name="PaxListMessage"/>
+    
+    <xs:complexType name="PaxListMessage">     
+        <xs:sequence>
+            <xs:element name="bgm" type="se:BgmBeginningOfMessage" />
+			<xs:element name="rff" type="se:RffReference" />
+            <xs:element name="group1" type="gr:Gr1" />
+            <xs:element name="group2" type="gr:Gr2" maxOccurs="3"/>
+            <xs:element name="group4" type="gr:Gr4" maxOccurs="5"/>
+            <xs:element name="cnt" type="se:CntControlTotal" />
+        </xs:sequence>
+    </xs:complexType>
+    
+<!--     <xs:complexType name="Gr2List">
+        <xs:sequence>
+            <xs:element name="gr2" type="gr:Gr2" />
+        </xs:sequence>
+    </xs:complexType>-->
+    
+    <xs:complexType name="Gr1">
+        <xs:sequence>
+            <xs:element name="nad" type="se:NadNameAndAddress" />
+            <xs:element name="com" type="se:ComCommunicationContact" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Gr2">
+        <xs:sequence>
+            <xs:element name="tdt" type="se:TdtTransportInformation" />
+            <xs:element name="group3" type="gr:Gr3" maxOccurs="10" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Gr3">
+        <xs:sequence>
+            <xs:element name="loc" type="se:LocPlaceLocationIdentification" />
+            <xs:element name="dtm" type="se:DtmDateTimePeriod" maxOccurs="2" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Gr4">       
+        <xs:sequence>        	
+            <xs:element name="nad" type="se:NadNameAndAddress" />
+            <xs:element name="att" type="se:AttAttribute" />
+            <xs:element name="dtm" type="se:DtmDateTimePeriod" />
+            <xs:element name="mea" type="se:MeaNumberOfCheckedBaggage" maxOccurs="2"/>	
+            <xs:element name="gei" type="se:GeiInformationIdentifier" />
+            <xs:element name="ftx" type="se:FtxFreeText" maxOccurs="2"/>	
+            <xs:element name="loc" type="se:LocPlaceLocationIdentification" maxOccurs="5"/>
+            <xs:element name="com" type="se:ComCommunicationContact" />	
+            <xs:element name="emp" type="se:EmpEmploymentDetails" />			
+            <xs:element name="nat" type="se:NatNationality" />
+            <xs:element name="rff" type="se:RffReference" maxOccurs="5" />
+            <xs:element name="group5" type="gr:Gr5" maxOccurs="2" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Gr5">
+        <xs:sequence>
+            <xs:element name="doc" type="se:DocDocumentMessageDetails" />
+            <xs:element name="dtm" type="se:DtmDateTimePeriod" maxOccurs="2" />
+            <xs:element name="loc" type="se:LocPlaceLocationIdentification" maxOccurs="2"/>	
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

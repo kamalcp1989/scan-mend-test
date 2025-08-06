@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway-request-adapter
+  jmx:
+    enabled: true
+    
+environment:
+  prefix:
+  
+hawtio:
+  authenticationEnabled: false
+  pluginEnabled: true
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hawtio,jolokia
+  endpoint:
+    hawtio:
+      enabled: true
+    jolokia:
+      enabled: true
+camel:
+  springboot:
+    jmx-enabled: true

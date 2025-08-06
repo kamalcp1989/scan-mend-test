@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           targetNamespace="service.model" 
+           xmlns:ns="service.model"
+           xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+           jaxb:version="3.0">
+   
+	<xs:complexType name="UnbInterchangeHeader">
+		<xs:sequence>
+			<xs:element name="syntaxIdentifier" type="ns:S001SyntaxIdentifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="interchangeSender" type="ns:S002InterchangeSender" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="interchangeRecipient" type="ns:S003InterchangeRecipient" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dateAndTimeOfPreparation" type="ns:S004DateAndTimeOfPreparation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="interchangeControlReference" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<!--<xs:element name="recipientReferencePasswordDetails" type="ns:S005RecipientReferencePasswordDetails" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="testIndicator" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="1"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="applicationReference" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="processingPriorityCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="1"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="acknowledgementRequest" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="1"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="interchangeAgreementIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="recipientReferencePasswordDetails" type="ns:S005RecipientReferencePasswordDetails" minOccurs="0" maxOccurs="1"/> -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UngGroupHeader">
+		<xs:sequence>
+			<xs:element name="messageGroupIdentification" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="applicationSenderIdentification" type="ns:S006ApplicationSenderIdentification" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="applicationRecipientIdentification" type="ns:S007ApplicationRecipientIdentification" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dateAndTimeOfPreparation" type="ns:S004DateAndTimeOfPreparation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="groupReferenceNumber" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="controllingAgencyCoded" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageVersion" type="ns:S008MessageVersion" minOccurs="0" maxOccurs="1"/>
+			<!--<xs:element name="applicationPassword" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element> -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UnhMessageHeader">
+		<xs:sequence>
+			<xs:element name="messageReferenceNumber" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageIdentifier" type="ns:S009MessageIdentifier" minOccurs="1" maxOccurs="1"/>
+			
+			<!--<xs:element name="statusOfTheTransfer" type="ns:S010StatusOfTheTransfer" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="commonAccessReference" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="scenarioIdentification" type="ns:S018ScenarioIdentification" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageImplementationGuidelineIdentification" type="ns:S017MessageImplementationGuidelineIdentification" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageSubsetIdentification" type="ns:S016MessageSubsetIdentification" minOccurs="0" maxOccurs="1"/> -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="UntMessageTrailer">
+		<xs:sequence>
+			<xs:element name="numberOfSegmentsInMessage" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="10"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageReferenceNumber" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UneGroupTrailer">
+		<xs:sequence>
+			<xs:element name="groupControlCount" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="groupReferenceNumber" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UnzInterchangeTrailer">
+		<xs:sequence>
+			<xs:element name="interchangeControlCount" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="interchangeControlReference" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="S001SyntaxIdentifier">
+		<xs:sequence>
+			<xs:element name="syntaxIdentifier" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="4"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="syntaxVersionNumber" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="1"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<!--<xs:element name="serviceCodeListDirectoryVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="syntaxReleaseNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="2"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="characterEncodingCoded" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element> -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="S002InterchangeSender">
+		<xs:sequence>
+			<xs:element name="interchangeSenderIdentification" minOccurs="1" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="identificationCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="4"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="interchangeSenderInternalIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<!--<xs:element name="interchangeSenderInternalSubIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="S003InterchangeRecipient">
+		<xs:sequence>
+			<xs:element name="interchangeRecipientIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="identificationCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="4"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="interchangeRecipientInternalIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<!--<xs:element name="interchangeRecipientInternalSubIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="S004DateAndTimeOfPreparation">
+		<xs:sequence>
+			<xs:element name="date" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="time" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="4"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--<xs:complexType name="S005RecipientReferencePasswordDetails">
+		<xs:sequence>
+			<xs:element name="recipientReferencePassword" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="recipientReferencePasswordQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="2"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType> -->
+	<xs:complexType name="S006ApplicationSenderIdentification">
+		<xs:sequence>
+			<xs:element name="applicationSenderIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="identificationCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="4"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="S007ApplicationRecipientIdentification">
+		<xs:sequence>
+			<xs:element name="applicationRecipientIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="identificationCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="4"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="S008MessageVersion">
+		<xs:sequence>
+			<xs:element name="messageVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageReleaseNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="associationAssignedCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="S009MessageIdentifier">
+		<xs:sequence>
+			<xs:element name="messageType" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageReleaseNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="controllingAgencyCoded" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="associationAssignedCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListDirectoryVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageTypeSubFunctionIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--<xs:complexType name="S010StatusOfTheTransfer">
+		<xs:sequence>
+			<xs:element name="sequenceOfTransfers" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="2"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="firstAndLastTransfer" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="1"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>-->
+	<!--<xs:complexType name="S016MessageSubsetIdentification">
+		<xs:sequence>
+			<xs:element name="controllingAgencyCoded" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageSubsetReleaseNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageSubsetIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageSubsetVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>-->
+	<!--<xs:complexType name="S017MessageImplementationGuidelineIdentification">
+		<xs:sequence>
+			<xs:element name="controllingAgencyCoded" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageImplementationGuidelineIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageImplementationGuidelineVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="messageImplementationGuidelineReleaseNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>-->
+	<!--<xs:complexType name="S018ScenarioIdentification">
+		<xs:sequence>
+			<xs:element name="controllingAgencyCoded" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="scenarioReleaseNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="scenarioIdentification" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="14"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="scenarioVersionNumber" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>-->
+
+  <!-- PAXLIST Body Types -->
+  <xs:complexType name="BgmBeginningOfMessage">
+		<xs:sequence>
+			<xs:element name="documentMessageIdentification" type="ns:C106DocumentMessageIdentification" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="documentMessageName" type="ns:C002DocumentMessageName" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C002DocumentMessageName">
+		<xs:sequence>
+			<xs:element name="documentNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C106DocumentMessageIdentification">
+		<xs:sequence>
+			<xs:element name="documentIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RffReference">
+		<xs:sequence>
+			<xs:element name="reference" type="ns:C506Reference" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C506Reference">
+		<xs:sequence>
+			<xs:element name="referenceCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="referenceIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="70"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="revisionIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="6"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="NadNameAndAddress">
+		<xs:sequence>
+			<xs:element name="partyFunctionCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="partyIdentificationDetails" type="ns:C082PartyIdentificationDetails" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nameAndAddress" type="ns:C058NameAndAddress" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="partyName" type="ns:C080PartyName" minOccurs="0" maxOccurs="1"/>
+			
+			<xs:element name="street" type="ns:C059Street" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="cityName" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="countrySubEntityDetails" type="ns:C819CountrySubEntityDetails" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="postalIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="countryNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C059Street">
+		<xs:sequence>
+			<xs:element name="streetAndNumberOrPostOfficeBoxIdentifier" minOccurs="0" maxOccurs="4">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C819CountrySubEntityDetails">
+		<xs:sequence>
+			<xs:element name="countrySubEntityNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="9"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="countrySubEntityName" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="70"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C058NameAndAddress">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nameAndAddressDescription" minOccurs="0" maxOccurs="5">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C082PartyIdentificationDetails">
+		<xs:sequence>
+			<xs:element name="partyIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C080PartyName">
+		<xs:sequence>
+			<xs:element name="partyName" minOccurs="0" maxOccurs="5">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ComCommunicationContact">
+		<xs:sequence>
+			<xs:element name="communicationContact" type="ns:C076CommunicationContact" minOccurs="0" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C076CommunicationContact">
+		<xs:sequence>
+			<xs:element name="communicationAddressIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="512"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="communicationAddressCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CntControlTotal">
+		<xs:sequence>
+			<xs:element name="control" type="ns:C270Control" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C270Control">
+		<xs:sequence>
+			<xs:element name="controlTotalTypeCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="controlTotalQuantity" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="18"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TdtTransportInformation">
+		<xs:sequence>
+			<xs:element name="transportStageCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="meansOfTransportJourneyIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="modeOfTransport" type="ns:C220ModeOfTransport" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="transportMeans" type="ns:C001TransportMeans" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="carrier" type="ns:C040Carrier" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C220ModeOfTransport">
+		<xs:sequence>
+			<xs:element name="transportModeName" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="transportModeNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C001TransportMeans">
+		<xs:sequence>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="transportMeansDescriptionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="8"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="transportMeansDescription" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C040Carrier">
+		<xs:sequence>
+			<xs:element name="carrierIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="LocPlaceLocationIdentification">
+        <xs:sequence>
+        	<xs:element name="locationFunctionCodeQualifier" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="locationIdentification" type="ns:C517LocationIdentification" minOccurs="0" maxOccurs="1"/> 
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="C517LocationIdentification">
+		<xs:sequence>
+			<xs:element name="locationNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="locationName" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="256"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="DtmDateTimePeriod">
+		<xs:sequence>
+			<xs:element name="dateTimePeriod" type="ns:C507DateTimePeriod" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C507DateTimePeriod">
+		<xs:sequence>
+			<xs:element name="dateOrTimeOrPeriodFunctionCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="dateOrTimeOrPeriodText" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="dateOrTimeOrPeriodFormatCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AttAttribute">
+		<xs:sequence>
+			<xs:element name="attributeFunctionCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeType" type="ns:C955AttributeType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="attributeDetail" type="ns:C956AttributeDetail" minOccurs="0" maxOccurs="5"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MeaNumberOfCheckedBaggage">
+		<xs:sequence>
+			<xs:element name="measurementCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="measurementDetails" type="ns:C502MeasurementDetails" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="value" type="ns:C174ValueRange" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GeiInformationIdentifier">
+		<xs:sequence>
+			<xs:element name="processingInformationCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="processingIndicator" type="ns:C012ProcessingIndicator" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C012ProcessingIndicator">
+		<xs:sequence>
+			<xs:element name="processingIndicatorDescriptionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C955AttributeType">
+		<xs:sequence>
+			<xs:element name="attributeTypeDescriptionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeTypeDescription" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="70"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C956AttributeDetail">
+		<xs:sequence>
+			<xs:element name="attributeDescriptionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeDescription" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="256"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FtxFreeText">
+		<xs:sequence>
+			<xs:element name="textSubjectCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="freeTextFunctionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="textReference" type="ns:C107TextReference" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="textLiteral" type="ns:C108TextLiteral" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C107TextReference">
+		<xs:sequence>
+			<xs:element name="freeTextDescriptionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C108TextLiteral">
+		<xs:sequence>
+			<xs:element name="freeText" minOccurs="0" maxOccurs="5">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="512"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	
+	<xs:complexType name="EmpEmploymentDetails">
+		<xs:sequence>
+			<xs:element name="employmentDetailsCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="employmentCategory" type="ns:C948EmploymentCategory" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C948EmploymentCategory">
+		<xs:sequence>
+			<xs:element name="employmentCategoryDescriptionCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="employmentCategoryDescription" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NatNationality">
+		<xs:sequence>
+			<xs:element name="nationalityCodeQualifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="nationalityDetails" type="ns:C042NationalityDetails" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C042NationalityDetails">
+		<xs:sequence>
+			<xs:element name="nationalityNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListIdentificationCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="codeListResponsibleAgencyCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="nationalityName" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocDocumentMessageDetails">
+		<xs:sequence>
+			<xs:element name="documentMessageName" type="ns:C002DocumentMessageName" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="documentMessageDetails" type="ns:C503DocumentMessageDetails" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="C503DocumentMessageDetails">
+		<xs:sequence>
+			<xs:element name="documentIdentifier" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="35"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C502MeasurementDetails">
+		<xs:sequence>
+			<xs:element name="measuredAttributeCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="measurementSignificanceCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="3"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="nonDiscreteMeasurementNameCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="17"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="nonDiscreteMeasurementName" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="70"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="C174ValueRange">
+		<xs:sequence>
+			<xs:element name="measurementUnitCode" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="8"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="measure" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:string">
+			            <xs:maxLength value="18"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="rangeMinimumQuantity" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="18"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="rangeMaximumQuantity" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="18"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+			<xs:element name="significantDigitsQuantity" minOccurs="0" maxOccurs="1">
+			    <xs:simpleType>
+			        <xs:restriction base="xs:integer">
+			            <xs:totalDigits value="2"/>
+			        </xs:restriction>
+			    </xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

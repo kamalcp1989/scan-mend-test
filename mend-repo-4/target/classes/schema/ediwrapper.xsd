@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="ediwrapper.model"
+            xmlns:se="service.model"
+            xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+            jaxb:version="3.0">
+            
+    <xs:import namespace="service.model" schemaLocation="service.xsd"/>
+    
+    <xs:complexType name="EDIHeader">           
+        <xs:sequence>
+            <xs:element name="unb" type="se:UnbInterchangeHeader" />
+            <xs:element name="ung" type="se:UngGroupHeader" />
+            <xs:element name="unh" type="se:UnhMessageHeader" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EDITrailer">           
+        <xs:sequence>
+            <xs:element name="unt" type="se:UntMessageTrailer" />
+            <xs:element name="une" type="se:UneGroupTrailer" />
+            <xs:element name="unz" type="se:UnzInterchangeTrailer" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

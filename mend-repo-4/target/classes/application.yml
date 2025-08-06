@@ -1,0 +1,13 @@
+server:
+  port: 5001
+  
+spring:
+  application:
+    name: uae-gateway-parser
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs

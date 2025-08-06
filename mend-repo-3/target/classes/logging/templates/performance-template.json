@@ -1,0 +1,40 @@
+{
+  "timestamp": {
+    "$resolver": "timestamp"
+  },
+  "applicationDomain" : {
+    "$resolver": "main",
+    "key": "applicationDomain"
+  },
+  "applicationName" : {
+    "$resolver": "main",
+    "key": "applicationName"
+  },
+  "applicationVersion" : {
+    "$resolver": "main",
+    "key": "applicationVersion"
+  },
+  "loggerName": {
+    "$resolver": "logger",
+    "field": "name"
+  },
+  "level": {
+    "$resolver": "level",
+    "field": "name"
+  },
+  "host": "${hostName}",
+  "thread": {
+    "$resolver": "thread",
+    "field": "name"
+  },
+  "mappedContext": {
+    "$resolver": "mdc"
+  },
+  "nestedContext" : {
+    "$resolver": "ndc"
+  },
+  "processingTimeMillis" : {
+    "$resolver" : "map",
+    "key": "processingTimeMillis"
+  }
+}

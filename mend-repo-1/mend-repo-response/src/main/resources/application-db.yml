@@ -1,0 +1,11 @@
+oracle:
+  datasource:
+    url: jdbc:oracle:thin:@//ae19cdb02.borders.devnet.sita.aero:1599/UAEFTPDB
+    username: AEFT4_APP_DATA
+    password: app_data
+    driver-class-name: oracle.jdbc.OracleDriver
+  ref-datasource:
+    url: jdbc:oracle:thin:@//ae19cdb02.borders.devnet.sita.aero:1599/UAEFTPDB
+    username: AEFT4_REFDATA
+    password: AEFT4_REFDATA
+    driver-class-name: oracle.jdbc.OracleDriver

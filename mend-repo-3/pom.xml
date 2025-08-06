@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>mend.repo.scan</groupId>
+		<artifactId>mend-scan-service</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>mend-repo-3</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>mend-repo-3</name>
+    <description>mend-repo-3 log factory</description>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${dependency.version.spring.boot}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter</artifactId>
+          <exclusions>
+            <exclusion>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+	</dependencies>
+
+	<build>
+	    <resources>
+	      <resource>
+	        <directory>src/main/resources</directory>
+	      </resource>
+	    </resources>
+	</build>
+</project>
