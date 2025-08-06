@@ -125,6 +125,11 @@
 				<artifactId>camel-management-starter</artifactId>
 				<version>${dependency.version.camel}</version>
 			</dependency>
+			<dependency>
+				<groupId>io.hawt</groupId>
+				<artifactId>hawtio-springboot</artifactId>
+				<version>${io.hawt.springboot}</version>
+			</dependency>
         </dependencies>
     </dependencyManagement>
     <build>
